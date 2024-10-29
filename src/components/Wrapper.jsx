@@ -85,12 +85,12 @@ class Wrapper extends PureComponent {
             <main>
                 <div id="quote-box">
                     <div className='row'>
-                        <p id="text">{currentQuote.quote}</p>
-                        <div id="author">{currentQuote.source}</div>
+                        <p id="text"><blockquote>{currentQuote.quote}</blockquote></p>
+                        <div id="author"><cite>{currentQuote.source}</cite></div>
                     </div>
                     <div  className='row'>
-                        <a target="_blank" id="tweet-quote" className='criss-cross' href={`https://twitter.com/intent/tweet?screen_name="${currentQuote.quote}"`}><span className='gps-button'>tweet 🐧</span></a>
-                        <button onClick={this.newQuote} id="new-quote" className='criss-cross'><span className='gps-button'>new Quote</span></button>
+                        <a target="_blank" id="tweet-quote" className='button button--rounded' href={`https://twitter.com/intent/tweet?screen_name="${currentQuote.quote}"`}><span className='gps-button'>tweet 🐧</span></a>
+                        <button onClick={this.newQuote} id="new-quote" className='button button--rounded'><span className='gps-button'>new Quote</span></button>
                     </div>
                 </div>
             </main>

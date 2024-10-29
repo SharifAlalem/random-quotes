@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Special+Elite');
 main {
     height: 100vh;
     width: 100%;
-    background-color: rgb(27, 48, 123);
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Special Elite', cursive;
 
     #quote-box {
         width: 70%;
@@ -22,48 +23,95 @@ main {
         }
 
         #text {
-            display: inline-block;
-            box-sizing: content-box;
-            border: none;
-            font: normal 40px/1 "Aladin", Helvetica, sans-serif;
-            color: rgba(48,48,48,1);
-            text-align: center;
-            text-transform: normal;
-            -o-text-overflow: clip;
-            text-overflow: clip;
-            text-shadow: 1px 1px 0 rgba(140,140,140,0.6) , -1px -1px 1px rgba(0,0,0,0.67); 
-            animation: fade-in 1s;
+            blockquote {
+                font-weight: 100;
+                font-size: 2rem;
+                line-height: 1.4;
+                position: relative;
+                margin: 0;
+                padding: .5rem;
+
+
+                @media (max-width: 769px) {
+                    font-size: 1.5rem;
+                }
+
+                @media (max-width: 400px) {
+                    font-size: 1rem;
+                }
+            }
+            
+            blockquote:before,
+            blockquote:after {
+                position: absolute;
+                color: #f1efe6;
+                font-size: 8rem;
+                width: 4rem;
+                height: 4rem;
+
+                @media (max-width: 769px) {
+                    font-size: 4rem;
+                }
+            }
+            
+            blockquote:before {
+                content: '“';
+                left: -3rem;
+                top: -2rem;
+            }
+
+            blockquote:after {
+                content: '”';
+                right: -3rem;
+                bottom: 1rem;
+            }
+
         }
 
         #author {
             text-align: right;
-            font-size: 50px;
+            font-size: clamp(18px, 4vw, 20px);
             color: rgba(0,0,0,0.3);
             font-weight: 900;
             animation: fade-in 1.5s;
+            margin-bottom: 10px;
+
+            cite {
+                line-height: 3;
+                text-align: left;
+            }
         }
 
         #new-quote,#tweet-quote {
             background-color: rgba(0,0,0,0);
             border: none;
-            margin: 20px 20px;
+            margin: 20px;
             width: 150px;
         
-            &.criss-cross .gps-button {
-                background: linear-gradient(to right, rgba(255,255,255,0), #fff 50%) 250% 100% / 100% 0 no-repeat, linear-gradient(to right, #3eaad8, #3eaad8) 100% 100% / 100% 2px no-repeat, linear-gradient(to right, #3eaad8, #3eaad8) 100% 0% / 100% 2px no-repeat, linear-gradient(to right, #3eaad8, #3eaad8) 0 0 / 2px 100% no-repeat, linear-gradient(to right, #3eaad8, #3eaad8) 100% 0 / 2px 100% no-repeat;
-                color: #008cd8;
-                cursor: pointer !important;
-                    display: inline-block;
-                    font: normal normal 20px / 1.35 "Work Sans", Helvetica, Arial, Verdana, sans-serif;
-                    padding: 5px 8px;
-                text-decoration: none !important;
-                transition: all .45s ease-in-out; }
+            &.button {
+                padding: 12px 24px;
+                font-size: 16px;
+                font-weight: 600;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
             
-            &.criss-cross .gps-button:hover, &.criss-cross .gps-button:focus {
-                background-position: 0 100%, 100% 0;
-                color: #000;
-                outline: none;
-                transition: all .45s ease-in-out; }
+            &.button:focus {
+                outline: 3px solid rgba(253, 99, 47, 0.5);
+                outline-offset: 2px;
+            }
+
+            &.button--rounded {
+                background-color: orangered;
+                color: white;
+                border-radius: 50px;
+            }
+            
+            &.button--rounded:hover {
+                background-color: rgb(228, 116, 75);
+            }
         }
     }
 
